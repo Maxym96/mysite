@@ -1,0 +1,33 @@
+.form-control-dark {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: var(--bs-gray);
+  text-align:  center;
+}
+.form-control-dark:focus {
+  color: #fff;
+  background-color: var(--bs-dark);
+  border-color: #fff;
+  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+  z-index: auto;
+  text-align:  center;
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+  text-align:  center;
+}
+
+.text-small {
+  font-size: 85%;
+  text-align:  center;
+}
+
+.dropdown-toggle {
+  outline: 0;
+  text-align:  center;
+}
+.nav-pills {
+  display: flex!important;
+}
