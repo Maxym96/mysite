@@ -1,14 +1,27 @@
 <?php
 
-namespace App\Services\MyErrorHandler;
-
-class MyErrorHandler
-{
-    public function myErrorHandler(string $errorNotify, string $errorString, string $errorFile, string $errorLine)
+    function myErrorHandler(int $errorNotify, string $errorString, string $errorFile, int $errorLine): bool
     {
-        set_error_handler("myErrorHandler");
+        $errorTime = time();
+        $errorNowTime = date('Y-m-d H:i:s', $errorTime);
+        $errstr = htmlspecialchars($errorString);
+        $fileName = '../../logs/error_handler_log.txt';
+        $errorNotifyInFile =
+            [
+                'Time error'=>$errorNowTime.' ',
+                'errorNotify'=>$errorNotify.' ',
+                'errorString'=>$errorString.' ',
+                'errorLine'=>$errorLine.' ',
+                'errorFile'=>$errorFile.' ',
+            ];
+        file_put_contents($fileName, $errorNotifyInFile, FILE_APPEND);
 
-        echo "<b>Custom error:</b> [$errorNotify] $errorString<br>";
-        echo " Error on line $errorLine in $errorFile<br>";
+        return true;
     }
-}
+
+$old_error_handler = set_error_handler("myErrorHandler");
+
+
+trigger_error("E_USER_WARNING", E_USER_WARNING);
+trigger_error("E_USER_NOTICE", E_USER_NOTICE);
+trigger_error("E_USER_ERROR", E_USER_ERROR);
