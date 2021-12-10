@@ -15,9 +15,9 @@ ini_set('display_errors', 1);
 $router = new Router($_SERVER['REQUEST_URI']);
 $router->run();
 
-echo '<pre>';
-print_r($_SERVER['REQUEST_URI']);
-echo '</pre>';
+//echo '<pre>';
+//print_r($_SERVER['REQUEST_URI']);
+//echo '</pre>';
 
 
 //$app = new App();

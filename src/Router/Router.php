@@ -2,7 +2,8 @@
 
 namespace App\Router;
 
-use GuzzleHttp\Exception\BadResponseException;
+use App\Controller\ProductController;
+use App\Model\ProductList;
 
 class Router
 {
@@ -11,7 +12,7 @@ class Router
     private string $route;
     const HOME = '../../public/index.php';
 
-    public function __construct($route)
+    public function __construct(string $route)
     {
         $this->route=$route;
     }
@@ -21,12 +22,16 @@ class Router
             switch ($this->route)
             {
                 case '/':
-                    echo 1111;
                     $this->route = self::HOME;
                     break;
 
                 case '/controller':
                     echo "<b>Пользовательское ПРЕДУПРЕЖДЕНИЕ</b><br />\n";
+//                    $productList = new ProductList();
+//                    print_r($productList->productList);
+                    $productController = new ProductController();
+                    $productController->productList();
+//                    print_r();
                     break;
 
                 case '/2':

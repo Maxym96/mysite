@@ -1,13 +1,19 @@
 <?php
 
 namespace App\Controller;
-class ProductController
-{
-    public $productList = [];
+use App\Model\ProductList;
 
-    public function productList(array $productList)
+class ProductController extends ProductList
+{
+
+//    public function __construct(array $productList)
+//    {
+//        $this->$productList = $productList;
+//    }
+
+    public function productList(): void
     {
-        foreach ($productList as $key=>$item) {
+        foreach ($this->getFile() as $key=>$item) {
             echo "{$key} <br>";
             foreach ($item as $key1=>$item1) {
                 echo "<pre>{$key1} => {$item1}.<br>";
