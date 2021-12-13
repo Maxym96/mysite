@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Model\ProductList;
+use App\Services\ISession;
 
 class ProductController extends ProductList
 {

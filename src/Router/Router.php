@@ -3,6 +3,7 @@
 namespace App\Router;
 
 use App\Controller\ProductController;
+use App\Controller\SessionController;
 use App\Model\ProductList;
 
 class Router
@@ -26,7 +27,6 @@ class Router
                     break;
 
                 case '/controller':
-                    echo "<b>Пользовательское ПРЕДУПРЕЖДЕНИЕ</b><br />\n";
 //                    $productList = new ProductList();
 //                    print_r($productList->productList);
                     $productController = new ProductController();
@@ -34,8 +34,11 @@ class Router
 //                    print_r();
                     break;
 
-                case '/2':
-                    echo "<b>Пользовательское УВЕДОМЛЕНИЕ</b><br />\n";
+                case '/session':
+                    echo "sessionController: <br />\n";
+                    $sessionController = new SessionController();
+                    $sessionController->start();
+                    $sessionController->get();
                     break;
 
                 default:
